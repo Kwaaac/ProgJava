@@ -24,3 +24,7 @@ hs_err_pid*
 
 # Eclipse metadata
 .metadata
+
+# IntelliJ idea
+.idea
+.iml
