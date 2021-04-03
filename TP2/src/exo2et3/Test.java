@@ -1,4 +1,4 @@
-package exo2;
+package exo2et3;
 
 public class Test {
 
