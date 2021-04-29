@@ -3,15 +3,13 @@ package fr.umlv.fight;
 public class Arena {
     public static Robot fight(Robot first, Robot second) {
         while (true) {
-            if (first.isDead()) {
-                return second;
-            }
-            first.fire(second);
-
-            if (second.isDead()) {
+            if(first.fire(second)){
                 return first;
             }
-            second.fire(first);
+
+            if(second.fire(first)){
+                return second;
+            }
         }
     }
 }
