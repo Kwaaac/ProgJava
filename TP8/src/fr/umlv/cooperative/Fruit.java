@@ -1,5 +1,5 @@
 package fr.umlv.cooperative;
 
-public interface Fruit {
+sealed interface Fruit permits Apple, Pear{
     int price();
 }

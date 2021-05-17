@@ -1,6 +1,6 @@
 package fr.umlv.cooperative;
 
-public record Pear(int juiceFactor) implements Fruit {
+public final record Pear(int juiceFactor) implements Fruit {
 
     public Pear {
         if(juiceFactor < 0 || juiceFactor > 9){

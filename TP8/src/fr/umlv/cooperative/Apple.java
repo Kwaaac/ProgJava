@@ -2,7 +2,7 @@ package fr.umlv.cooperative;
 
 import java.util.Objects;
 
-public record Apple(int weight, AppleKind variety) implements Fruit {
+public final record Apple(int weight, AppleKind variety) implements Fruit {
 
     public Apple {
         Objects.requireNonNull(variety);
