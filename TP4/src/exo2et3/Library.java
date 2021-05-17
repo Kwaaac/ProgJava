@@ -5,6 +5,16 @@ import java.util.Objects;
 
 public class Library {
     // private final ArrayList<Book> books;
+    // HashMap est une implémentation de la structure AbstractMap
+
+    /* On préfère utiliser une classe plutôt qu'un record car on souhaite
+    pouvoir garder les champs sans getter ou setter et garder la boîte noire
+    de la classe. En effet, avec la classe, ormis le fait que l'utilisateur n'a pas accès aux
+    champs. On les remplaces par des add, remove, find..., et l'utilisateur
+    n'a pas accès à notre implémentation. Il n'utilise que les add,remove, find...
+    De la même manière qu'une API en quelque sorte.
+
+    */
     private final LinkedHashMap<String, Book> books;
 
     /**
@@ -27,6 +37,9 @@ public class Library {
     }
 
     /*
+    D'après le commentaire suivant, récupérer avec javap -c
+    Les boucles forEach sont compilé par l'utilisation d'Iterator
+
       public exo2.Book findByTitle(java.lang.String);
     Code:
        0: aload_0
@@ -66,7 +79,10 @@ public class Library {
             if (book.title().equals(title)) return book;
         }
 
+        // On renvoit null car nous n'avons pas véritablement d'autre choix
+        // pour spécifier qu'il n'y a pas de livre qui possède ce titre.
         return null;
+
          */
 
         return books.get(title);
@@ -107,8 +123,7 @@ public class Library {
         }
         */
 
-        books.entrySet().removeIf(entry -> entry.getValue().author().equals(author));
-
+        books.entrySet().removeIf(book -> book.getValue().author().equals(author));
     }
 
     public static void main(String[] args) {

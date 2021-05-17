@@ -1,6 +1,4 @@
-package exo1;
-
-import java.util.Objects;
+package fr.umlv.fight;
 
 public class MainExo1 {
 
@@ -9,7 +7,7 @@ public class MainExo1 {
     *
     * */
     public static void main(String[] args) {
-        var book = new exo1.Book("Da Vinci Code", "Dan Brown");
+        var book = new Book("Da Vinci Code", "Dan Brown");
         //var weirdBook = new Book(null, "oops");
         System.out.println(book.title() + ' ' + book.author());
         //System.out.println(weirdBook.title() + ' ' + weirdBook.author());

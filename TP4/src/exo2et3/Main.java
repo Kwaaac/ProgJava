@@ -1,4 +1,4 @@
-package exo1;
+package exo2et3;
 
 public class Main {
     private int foo;

@@ -26,7 +26,7 @@ public sealed interface Expr {
 
             @Override
             public String toString() {
-                return "(" + leftValue + " - " + rightValue + ")";
+                return "(" + leftValue + " + " + rightValue + ")";
             }
         }
 
@@ -52,7 +52,6 @@ public sealed interface Expr {
 
             default -> new Value(Integer.parseInt(node));
         };
-
     }
 
     final record Value(int value) implements Expr {

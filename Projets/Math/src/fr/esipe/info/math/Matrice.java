@@ -76,8 +76,8 @@ public class Matrice {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < p; j++) {
                 prod[i][j] = Rational.ZERO;
-                for (int k = 0; k < M.n; k++) {
-                    prod[i][j] = prod[i][j].plus(coeff[i][k].plus(M.coeff[k][j]));
+                for (int k = 0; k < m; k++) {
+                    prod[i][j] = prod[i][j].plus(coeff[i][k].times(M.coeff[k][j]));
                 }
             }
         }
@@ -122,7 +122,7 @@ public class Matrice {
      * @param a scalaire par lequel on multiplie la ligne i quand on l'ajoute
      */
     public void transvection(int i, int j, Rational a) {
-        for (int k = 0; k < coeff[i].length; k++) {
+        for (int k = 0; k < m; k++) {
             coeff[j][k] = coeff[j][k].plus(coeff[i][k].times(a));
         }
     }
@@ -172,7 +172,6 @@ public class Matrice {
             }
         }
 
-
         return new Matrice(id);
     }
 
@@ -192,10 +191,10 @@ public class Matrice {
     }
 
     public int maxInColumn(int col) {
-        var max = coeff[0][0];
-        var index = 0;
+        var max = coeff[col][col];
+        var index = col;
 
-        for (var i = 1; i < n; i++) {
+        for (var i = col + 1; i < n; i++) {
             if (coeff[i][col].isGreaterThan(max)) {
                 max = coeff[i][col];
                 index = i;
@@ -238,6 +237,7 @@ public class Matrice {
 
         Rational a;
         for (int j = 0, r = 0; j < m; j++, r++) {
+
             if (!clone.coeff[r][j].equals(Rational.ZERO)) {
 
                 a = clone.coeff[r][j];
@@ -269,19 +269,18 @@ public class Matrice {
      * @return vecteur colonne a tel que this * a = b : tableau n x 1
      */
     public Matrice resoud(Matrice b) {
-        if (m != b.m) {
+        if (m != b.n) {
             throw new IllegalArgumentException("Dimensions incorrectes");
         }
 
-        Rational[][] a = new Rational[n][1];
-        /** Remplir ici le code manquant */
-        /**
-         *  S'il s'avère que l'équation n'a pas de solution :
-         *    throw new ArithmeticException("Pas de solution");
-         *  Si elle a plusieurs solutions :
-         *    on peut renvoyer n'importe quelle solution.
-         */
-        return new Matrice(a);
+        Matrice inverse;
+        try {
+            inverse = inverse();
+        } catch (Exception e) {
+            throw new ArithmeticException("Pas de solution");
+        }
+
+        return inverse.times(b);
     }
 
     @Override

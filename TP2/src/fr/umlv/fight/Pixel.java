@@ -1,4 +1,4 @@
-package exo1;
+package fr.umlv.fight;
 
 public class Pixel {
     public final static int ORIGIN = 0;

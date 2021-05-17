@@ -21,7 +21,18 @@ import java.util.Random;
  * Pour respecter le principe d'encapsulation, on veut que les champs puisse accessible depuis leurs méthodes uniquement.
  * On ne veut pas pouvoir modifier les champs depuis d'autre classes sans passer par les
  * vérification des méthodes, voir on pourrait les initialiser à null sans le vouloir.
+ * </p>
  *
+ * <p>
+ * Question 9:
+ *  Le sous-typage va utiliser du code en typant les références avec un supertype mais avec le code d'un sous-type.
+ *  L'exemple avec notre code serait l'appel de la méthode à fight de Arena.
+ *  La méthode va appeler deux Robot, mais on peut mettre un Fighter.
+ *
+ * Le polymorphisme, c'est lors de l'éxécution du code, les appels de méthodes sur le super-type appels les méthodes du sous-type.
+ * Par exemple la méthode rollDice() ou displayType(). Dans les méthodes toString ou fire de Robot, ce sont des méthodes
+ * qui sont appeller pour des Robot. Or, grâce au polymorphisme, comme les références sont des Fighter, alors les méthodes
+ * redéfinis par Fighter seront appelé à la place.
  * </p>
  */
 public class Fighter extends Robot {

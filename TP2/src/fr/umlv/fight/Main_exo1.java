@@ -1,4 +1,4 @@
-package exo1;
+package fr.umlv.fight;
 
 public class Main_exo1 {
 
