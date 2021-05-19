@@ -1,6 +1,6 @@
 package exo2et3;
 
-import exo1.Book;
+import fr.umlv.fight.Book;
 
         /*
         1.

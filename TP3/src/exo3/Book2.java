@@ -1,7 +1,5 @@
 package exo3;
 
-import exo1.Book;
-
 import java.util.Objects;
 
 public class Book2 {
