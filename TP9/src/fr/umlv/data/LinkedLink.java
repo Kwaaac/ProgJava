@@ -1,24 +1,38 @@
 package fr.umlv.data;
 
-import java.util.LinkedList;
 
-public class LinkedLink {
-    private final LinkedList<Link> list= new LinkedList<>();
+public class LinkedLink<T> {
 
-    public boolean add(int value){
-        return list.add(new Link(value));
+    private Link<T> headLink;
+
+    public void add(T value) {
+        headLink = new Link<T>(value, headLink);
     }
 
-    public Link get(int index){
-        if(index < 0 || index > list.size()){
-            throw new IndexOutOfBoundsException();
+    public T get(int index) {
+        var lnk = headLink;
+
+        for (int i = 0; lnk != null; lnk = lnk.next(), i++) {
+            if (i == index) {
+                return lnk.elt();
+            }
         }
 
-        return list.get(index);
+        throw new IllegalArgumentException("Bad index");
+    }
+
+    public boolean contains(Object o) {
+        for (var lnk = headLink; lnk != null; lnk = lnk.next()) {
+            if (lnk.elt().equals(o)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
     public String toString() {
-        return list.toString();
+        return "LinkedLink: [" + headLink.toString() + "]";
     }
 }
