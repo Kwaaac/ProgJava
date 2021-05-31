@@ -2,6 +2,7 @@ package fr.umlv.data.main;
 
 import fr.umlv.data.LinkedLink;
 
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -13,7 +14,7 @@ public class Main {
         System.out.println(lst);
 
         System.out.println(((String) lst.get(1)).length());
-*/
+        */
 
         /* Question 4:
          *
@@ -25,6 +26,8 @@ public class Main {
          */
 
         var lst = new LinkedLink<String>();
+
+
 
         lst.add("salut");
         lst.add("C'est moi");
